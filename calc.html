@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    .calculator {
+      width: 200px;
+      background-color: #f2f2f2;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    .calculator input[type="button"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 5px;
+    }
+    .calculator input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="result" readonly>
+    <input type="button" value="1" onclick="addToExpression(1)">
+    <input type="button" value="2" onclick="addToExpression(2)">
+    <input type="button" value="3" onclick="addToExpression(3)">
+    <input type="button" value="+" onclick="addToExpression('+')">
+    <input type="button" value="4" onclick="addToExpression(4)">
+    <input type="button" value="5" onclick="addToExpression(5)">
+    <input type="button" value="6" onclick="addToExpression(6)">
+    <input type="button" value="-" onclick="addToExpression('-')">
+    <input type="button" value="7" onclick="addToExpression(7)">
+    <input type="button" value="8" onclick="addToExpression(8)">
+    <input type="button" value="9" onclick="addToExpression(9)">
+    <input type="button" value="*" onclick="addToExpression('*')">
+    <input type="button" value="0" onclick="addToExpression(0)">
+    <input type="button" value="/" onclick="addToExpression('/')">
+    <input type="button" value="C" onclick="clearExpression()">
+    <input type="button" value="=" onclick="calculate()">
+  </div>
+
+  <script>
+    function addToExpression(value) {
+      var result = document.getElementById("result");
+      result.value += value;
+    }
+
+    function clearExpression() {
+      var result = document.getElementById("result");
+      result.value = '';
+    }
+
+    function calculate() {
+      var result = document.getElementById("result");
+      try {
+        result.value = eval(result.value);
+      } catch (error) {
+        result.value = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
